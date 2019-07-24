@@ -1,24 +1,50 @@
-# README
+#Приложение для получения информации о игроках NHL
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Данное приложение используется для сохранения и вывода информации о игроках и их результатах в играх NHL
+Для использования приложения требуется версия Ruby '2.5.3', а также заранее установленный bundler.
 
-Things you may want to cover:
+Для начала работы с приложением необходимо в консоли ОС в папке приложения выполнить команду: 
+```
+bundle install
+```
 
-* Ruby version
+Данная команда предустановит необходимые гемы.
 
-* System dependencies
+--------------------------------------------------------
 
-* Configuration
+Для работы с приложением используется простая СУБД SQlite. Для создания необходимых таблиц и первичного их заполнения выполните команды:
 
-* Database creation
+```
+bundle exec rake db:migrate
+bundle exec rake db:seed
+```
+На этом приготовления завершены. Можно наконец окунуться в само приложение.
 
-* Database initialization
+_С помощью команды rake db:seed вы добавили в БД данные для демонстрации функционала приложения. Доступно 4 команды, 8 игроков, 2 статистики и 6 матчей._
+_В демонстрационном варианте вместо <players_id> доступны значения от 1 до 8, вместо <achievement_id> доступны значения от 1 до 2, вместо <match_id> доступны значения от 1 до 6_
 
-* How to run the test suite
+---
+Для запуска приложения в консоли ОС в директории приложения выполнить команду: 
+```
+bundle exec rails console
+```
+Данная команда откроет консоль Rails, в которой и выполняется управление приложением.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+- Первая команда, которая вам доступна - добавление статистики игрока в матче. 
+```
+Player.find(<players_id>).add_statistic(<achievement_id>, <match_id>, <value>)
+```
+Для ее использования требуется подставить в <players_id>, <achievement_id>, <match_id> и <value`> необходимые значения. 
 
-* ...
+- Вторая команда ищет информацию об игроке и его достижениях в той или иной статистике. 
+```
+Player.find(<players_id>).check_player(<achievement_id>, <value>)
+```
+
+- Третья команда выводит топ по статистике
+
+```
+Achievement.find(<achievement_id>).top(<limit>)
+```
+Вместо <limit`> введите необходимое количество строк для вывода

@@ -26,8 +26,7 @@ Player.find_each do |player|
   (TeamMatch.where(team: player.team) + TeamMatch.where(opponent: player.team.id)).each do |match|
     Achievement.find_each do |achievement|
       PlayerStatistic.create(player: player, team_match: match,
-                             achievement: achievement, value: rand(50..100),
-                             achieved: true)
+                             achievement: achievement, value: rand(50..100))
     end
   end
 end

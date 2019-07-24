@@ -4,5 +4,5 @@ class PlayerStatistic < ApplicationRecord
   belongs_to :team_match
 
   validates_associated :achievement, :player, :team_match
-  validates_presence_of :value, :achieved
+  validates_presence_of :value
 end

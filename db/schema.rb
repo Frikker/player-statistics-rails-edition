@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2019_07_23_114722) do
 
   create_table "player_statistics", force: :cascade do |t|
     t.integer "value"
-    t.boolean "achieved"
     t.integer "achievement_id"
     t.integer "player_id"
     t.integer "team_match_id"
