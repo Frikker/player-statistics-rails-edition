@@ -3,5 +3,10 @@ class Achievement < ApplicationRecord
 
   validates_presence_of :name, :countable
 
-  scope :name, ->(name) { where("name IS #{name}") }
+  def top(limit = 5)
+    list = PlayerStatistic.where(achievement: self).order(value: :desc).take(limit)
+    list.each do |player|
+      puts "#{player.player.name}: #{player.value}"
+    end
+  end
 end

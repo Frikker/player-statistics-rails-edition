@@ -24,30 +24,30 @@ ActiveRecord::Schema.define(version: 2019_07_23_114722) do
     t.boolean "achieved"
     t.integer "achievement_id"
     t.integer "player_id"
-    t.integer "team_matches_id"
+    t.integer "team_match_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["achievement_id"], name: "index_player_statistics_on_achievement_id"
     t.index ["player_id"], name: "index_player_statistics_on_player_id"
-    t.index ["team_matches_id"], name: "index_player_statistics_on_team_matches_id"
+    t.index ["team_match_id"], name: "index_player_statistics_on_team_match_id"
   end
 
   create_table "players", force: :cascade do |t|
     t.text "name"
-    t.integer "teams_id"
+    t.integer "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["teams_id"], name: "index_players_on_teams_id"
+    t.index ["team_id"], name: "index_players_on_team_id"
   end
 
   create_table "team_matches", force: :cascade do |t|
     t.text "name"
     t.date "date"
     t.integer "opponent"
-    t.integer "teams_id"
+    t.integer "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["teams_id"], name: "index_team_matches_on_teams_id"
+    t.index ["team_id"], name: "index_team_matches_on_team_id"
   end
 
   create_table "teams", force: :cascade do |t|
