@@ -3,6 +3,7 @@ class CreateTeamMatches < ActiveRecord::Migration[5.2]
     create_table :team_matches do |t|
       t.text :name
       t.date :date
+      t.integer :opponent
       t.references :teams, foreign_key: true
       t.timestamps
     end
