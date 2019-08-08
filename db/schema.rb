@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_07_23_114722) do
   end
 
   create_table "player_statistics", force: :cascade do |t|
-    t.integer "value"
+    t.integer "value", null: false
     t.integer "achievement_id", null: false
     t.integer "player_id", null: false
     t.integer "team_match_id", null: false
@@ -44,8 +44,6 @@ ActiveRecord::Schema.define(version: 2019_07_23_114722) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["opponent_team_id", "team_id"], name: "index_team_matches_on_opponent_team_id_and_team_id"
-    t.index ["opponent_team_id"], name: "index_team_matches_on_opponent_team_id"
-    t.index ["team_id"], name: "index_team_matches_on_team_id"
   end
 
   create_table "teams", force: :cascade do |t|

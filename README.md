@@ -45,6 +45,6 @@ Player.find(<players_id>).check_player(<achievement_id>, <value>)
 - Третья команда выводит топ по статистике
 
 ```
-Achievement.find(<achievement_id>).top(<limit>)
+Achievement.find(<achievement_id>).top(<limit>, <team_id>)
 ```
 Вместо <limit`> введите необходимое количество строк для вывода
