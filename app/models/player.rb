@@ -5,8 +5,7 @@ class Player < ApplicationRecord
 
   belongs_to :team
 
-  validates_associated :team
-  validates_presence_of :name
+  validates :name, presence: true, uniqueness: true
 
   def add_statistic(achievement_id, team_match_id, value)
     PlayerStatistic.create(player: self, achievement: Achievement.find(achievement_id),
