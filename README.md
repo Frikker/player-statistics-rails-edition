@@ -39,12 +39,12 @@ Player.find(<players_id>).add_statistic(<achievement_id>, <match_id>, <value>)
 
 - Вторая команда ищет информацию об игроке и его достижениях в той или иной статистике. 
 ```
-Player.find(<players_id>).check_player(<achievement_id>, <value>)
+Player.find(<players_id>).check_players_achievements(<achievement_id>, <value>)
 ```
 
 - Третья команда выводит топ по статистике
 
 ```
-Achievement.find(<achievement_id>).top(<limit>, <team_id>)
+Achievement.find(<achievement_id>).top_players(<limit>, <team_id>)
 ```
 Вместо <limit`> введите необходимое количество строк для вывода
