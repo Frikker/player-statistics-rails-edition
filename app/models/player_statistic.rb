@@ -7,7 +7,7 @@ class PlayerStatistic < ApplicationRecord
 
   validates :value, presence: true
 
-  scope :top_five_team, ->(team) {
-    where(player: Player.where(team: Team.find(team)).take(1000)) unless team.zero?
+  scope :top_players_in_team, ->(team) {
+    joins(player: :team).where(teams: {id: team}) unless team.zero?
   }
 end

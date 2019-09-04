@@ -13,8 +13,7 @@ class Player < ApplicationRecord
   end
 
   def check_players_achievements(achievement_id, value)
-    statistic = player_statistics.where(player: self, achievement: achievement_id)
-                                 .where("value > ?", value).find_each
-    "#{name} reached #{value} at '#{Achievement.find(achievement).name}' #{statistic.count} times"
+    player_statistics.where(player: self, achievement: achievement_id)
+                                 .where("value > ?", value)
   end
 end

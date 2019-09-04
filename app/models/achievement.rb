@@ -6,8 +6,8 @@ class Achievement < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   def top_players(limit = 5, team_id = 0)
-    list = PlayerStatistic.where(achievement: self)
-                          .top_five_team(team_id)
-                          .order(value: :desc).take(limit)
+    PlayerStatistic.top_players_in_team(team_id).where(achievement: self)
+                   .order(value: :desc).group(:player_id)
+                   .take(limit)
   end
 end

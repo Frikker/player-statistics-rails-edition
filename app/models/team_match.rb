@@ -7,7 +7,6 @@ class TeamMatch < ApplicationRecord
   belongs_to :opponent_team, class_name: 'Team', foreign_key: 'opponent_team_id'
 
   before_validation do
-    self.name = "#{team.name} vs. #{opponent_team.name}.|
-                 |#{date}"
+    self.name = "#{team.name} vs. #{opponent_team.name}. #{date}"
   end
 end
